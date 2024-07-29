@@ -1,7 +1,8 @@
 #include "ti_msp_dl_config.h"
 #include "encoder.h"
-long g_lMotorPulseSigma =0;
-long g_lMotor2PulseSigma=0;
+#include "OLED.h"
+static long g_lMotorPulseSigma=0;
+static long g_lMotor2PulseSigma=0;
 uint32_t gpio_interrup;
 static uint8_t x,y, z, sum;
 int16_t _encoder_0_count,_encoder_1_count = 0;
@@ -15,15 +16,25 @@ void QEI1_IRQHandler(void);
 
 void QEI0_IRQHandler(void);
 
-
-
+long get_sigama1(void){
+		return g_lMotorPulseSigma;
+}
+long get_sigama2(void){
+		return g_lMotor2PulseSigma;
+}
+void clear_sigama1(void){
+	g_lMotorPulseSigma=0;
+}
+void clear_sigama2(void){
+	g_lMotor2PulseSigma=0;
+}
 //放在20ms的中断里
 void Setmotopulse(void)
 {
 	//累加脉冲数
-	g_lMotorPulseSigma+=g_nMotorPulse;
-	g_lMotor2PulseSigma+=g_nMotor2Pulse;
-	
+	g_lMotorPulseSigma+=(long)g_nMotorPulse;
+	g_lMotor2PulseSigma+=(long)g_nMotor2Pulse;
+	//
 	
 	g_nMotorPulse = _encoder_0_count;
 	g_nMotor2Pulse= _encoder_1_count;

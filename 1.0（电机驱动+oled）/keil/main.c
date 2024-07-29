@@ -71,11 +71,13 @@ int main(void)
 			
 			
 				//设定目标角度
-//		Init_angle = Yaw;
-//		Tg_angle = Init_angle +90;
-//		set_pid_target(&pid_turn, Tg_angle); 
-//		angle_flag = 1;
-//		set_pid_target(&pid_turn_speed, 160); 
+		//Init_angle = Yaw;
+		Init_angle = -90;
+		Tg_angle = Init_angle +90;
+		set_pid_target(&pid_turn, Tg_angle); 
+		angle_flag = 1;
+	set_pid_target(&pid_turn_speed, 200);
+//		set_pid_target(&pid_turn,200);
 
 
 //		}
@@ -83,15 +85,21 @@ int main(void)
 //		display_6_8_number_f1(5,5,Yaw);
 //		display_6_8_number_f1(5,1,Tg_angle);
 			DL_GPIO_setPins(GPIOB, DL_GPIO_PIN_22 | DL_GPIO_PIN_26);
-			MotorOutput(2500,2500);
+//			MotorOutput(1500,1500);
 			
 			OLED_ShowString(100,0*16,"abc",OLED_8X16);
 			OLED_ShowString(100,1*16,"abc",OLED_8X16);
 			OLED_ShowString(100,2*16,"abc",OLED_8X16);
 			OLED_ShowString(100,3*16,"abc",OLED_8X16);
-			OLED_ShowNum(2,1,250,4,OLED_8X16);
+		//	OLED_ShowNum(2,1,250,4,OLED_8X16);
 			OLED_Update(); 
-			
-//			
+//long a,b;
+
+	OLED_ShowFloatNum(0, 1*16, pid_location.target_val, 4, 4, OLED_8X16);//编码器测试
+	OLED_ShowFloatNum(0, 2*16, pid_location.actual_val, 4, 4, OLED_8X16);
+	OLED_ShowFloatNum(0, 3*16, pid_location.err, 4, 4, OLED_8X16);
+		//OLED_ShowNum(2,1, g_lMotorPulseSigma,4, OLED_8X16);//g_lMotorPulseSigma
+		//	OLED_ShowNum(2,31, a,4, OLED_8X16);
+		//	OLED_ShowNum(2,47, b,4, OLED_8X16);
     }
 }

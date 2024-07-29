@@ -192,7 +192,7 @@ float location_pid_control(void)
 	int32_t actual_location;
 	
 	
-	  actual_location =  g_lMotorPulseSigma;   //1圈 = 1456个脉冲 = 28*13*4  。
+	  actual_location =  get_sigama1();   //1圈 = 1456个脉冲 = 28*13*4  。
 
     cont_val = location_pid_realize(&pid_location, actual_location);   
 	  
@@ -236,7 +236,7 @@ float location2_pid_control(void)
 	float cont_val = 0.0; 
 	int32_t actual_location;
 	
-	  actual_location =  g_lMotor2PulseSigma;   
+	  actual_location =  get_sigama2();   
 
     cont_val = location_pid_realize(&pid_location2, actual_location);   
 	  
@@ -490,8 +490,9 @@ void Car_go(int32_t location_cm)   //直走函数     /
 	 
 	  g_lMotorPulseSigma = 0;    
 	  g_lMotor2PulseSigma = 0; 
-	
-		
+//	
+//		clear_sigama1();
+//	clear_sigama2();
 }
 
 

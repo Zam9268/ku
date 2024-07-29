@@ -35,7 +35,7 @@
 #define REDUCTION_RATIO  28
 
 #define SPEED_PID_PERIOD  20    //定时器的中断周期
-#define TARGET_SPEED_MAX   200  
+#define TARGET_SPEED_MAX   50  //原200，试改小；试改范围0-100
 
 #define LUN_JU 14.3   //单位cm
 #define HeadToWheelCM 13

@@ -21,7 +21,7 @@ void PID_param_init()
     pid_location.err_last=0.0;
     pid_location.integral=0.0;
   
-		pid_location.Kp = 0.10;
+		pid_location.Kp = 0.10;//
 		pid_location.Ki = 0.0;
 		pid_location.Kd = 0.0;
   
@@ -45,7 +45,7 @@ void PID_param_init()
     pid_location2.err_last=0.0;
     pid_location2.integral=0.0;
   
-		pid_location2.Kp = 0.10;
+		pid_location2.Kp = 0.1;//0.1
 		pid_location2.Ki = 0.0;
 		pid_location2.Kd = 0.0;
   
@@ -56,7 +56,7 @@ void PID_param_init()
     pid_speed2.err_last=0.0;
     pid_speed2.integral=0.0;
   
-		pid_speed2.Kp = 20.0;
+		pid_speed2.Kp = 17.0;
 		pid_speed2.Ki = 5.0;
 		pid_speed2.Kd = 0.0;
 		
@@ -68,7 +68,7 @@ void PID_param_init()
 		pid_turn.err_last=0.0;
 		pid_turn.integral=0.0;
 		
-		pid_turn.Kp=2.0;
+		pid_turn.Kp=0.5;//1.0
 		pid_turn.Ki=0.0;
 		pid_turn.Kd=0.0;
 
@@ -80,7 +80,7 @@ void PID_param_init()
 		pid_turn_speed.err_last=0.0;
 		pid_turn_speed.integral=0.0;
 		
-		pid_turn_speed.Kp=0.3;
+		pid_turn_speed.Kp=0.3;//0.3
 		pid_turn_speed.Ki=0.005;
 		pid_turn_speed.Kd=0.0;
 //#if defined(PID_ASSISTANT_EN)

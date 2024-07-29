@@ -52,42 +52,42 @@ void TIMER_1_INST_IRQHandler(void)
 			 Motor2PWM  = speed2_pid_control();
 		 }
 		 MotorOutput(MotorPWM,Motor2PWM);
-
+		
 		
 	//调试位置速度串级pid
-//		 if(is_motor_en == 1 && is_motor2_en == 1)
-//		 {
-//			 Location_Speed_control();
-//			 MotorPWM = speed_Outval;  
-//			 Motor2PWM = speed2_Outval;
-//			 MotorOutput(MotorPWM,Motor2PWM);
-//		 }
+		 if(is_motor_en == 1 && is_motor2_en == 1)
+		 {
+			 Location_Speed_control();
+			 MotorPWM = speed_Outval;  
+			 Motor2PWM = speed2_Outval;
+			 MotorOutput(MotorPWM,Motor2PWM);
+		 }
 
 
 //调试角度速度串级pid
-//	if(angle_flag ==1)
-//	{
+	if(angle_flag ==1)
+	{
 
-//		 if(is_motor_en == 1 && is_motor2_en == 1)
-//		 {
-//			 Turn_Angle_Speed_control();
-//			 MotorPWM = speed3_Outval;  
-//			 Motor2PWM = speed4_Outval;
-//			 MotorOutput(MotorPWM,Motor2PWM);
-//		 }
-//	 }
+		 if(is_motor_en == 1 && is_motor2_en == 1)
+		 {
+			 Turn_Angle_Speed_control();
+			 MotorPWM = speed3_Outval;  
+			 Motor2PWM = speed4_Outval;
+			 MotorOutput(MotorPWM,Motor2PWM);
+		 }
+	 }
 
-//	if(angle_flag ==1)
-//	{
+	if(angle_flag ==1)
+	{
 
-//		 if(is_motor_en == 1 && is_motor2_en == 1)
-//		 {
-//			 lind_Turn_Speed_control();
-//			 MotorPWM = speed3_Outval;  
-//			 Motor2PWM = speed4_Outval;
-//			 MotorOutput(MotorPWM,Motor2PWM);
-//		 }
-//	 }
+		 if(is_motor_en == 1 && is_motor2_en == 1)
+		 {
+			 lind_Turn_Speed_control();
+			 MotorPWM = speed3_Outval;  
+			 Motor2PWM = speed4_Outval;
+			 MotorOutput(MotorPWM,Motor2PWM);
+		 }
+	 }
 
 
 }
