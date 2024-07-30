@@ -1,8 +1,8 @@
 /**
  * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
  * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
- * @cliArgs --device "MSPM0G350X" --package "LQFP-64(PM)" --part "Default" --product "mspm0_sdk@2.01.00.03"
- * @versions {"tool":"1.20.0+3587"}
+ * @cliArgs --device "MSPM0G350X" --package "LQFP-64(PM)" --part "Default" --product "mspm0_sdk@1.30.00.03"
+ * @versions {"tool":"1.19.0+3426"}
  */
 
 /**
@@ -28,6 +28,7 @@ const SYSTICK = scripting.addModule("/ti/driverlib/SYSTICK");
 const TIMER   = scripting.addModule("/ti/driverlib/TIMER", {}, false);
 const TIMER1  = TIMER.addInstance();
 const TIMER2  = TIMER.addInstance();
+const TIMER3  = TIMER.addInstance();
 const UART    = scripting.addModule("/ti/driverlib/UART", {}, false);
 const UART1   = UART.addInstance();
 const UART2   = UART.addInstance();
@@ -215,12 +216,12 @@ SYSTICK.interruptPriority = "0";
 SYSTICK.systickEnable     = true;
 
 TIMER1.$name              = "TIMER_0";
-TIMER1.timerClkDiv        = 2;
 TIMER1.interrupts         = ["ZERO"];
 TIMER1.timerMode          = "PERIODIC";
 TIMER1.timerClkPrescale   = 256;
-TIMER1.timerPeriod        = "0.5";
 TIMER1.interruptPriority  = "3";
+TIMER1.timerPeriod        = "1s";
+TIMER1.timerClkDiv        = 4;
 TIMER1.peripheral.$assign = "TIMG0";
 
 TIMER2.$name              = "TIMER_1";
@@ -231,6 +232,13 @@ TIMER2.timerClkPrescale   = 200;
 TIMER2.timerPeriod        = "0.02";
 TIMER2.interruptPriority  = "1";
 TIMER2.peripheral.$assign = "TIMG6";
+
+TIMER3.$name             = "TIMER_2";
+TIMER3.timerClkPrescale  = 160;
+TIMER3.interrupts        = ["ZERO"];
+TIMER3.interruptPriority = "3";
+TIMER3.timerClkDiv       = 8;
+TIMER3.timerPeriod       = "1s";
 
 UART1.$name                            = "UART_1";
 UART1.enabledInterrupts                = ["RX","TX"];
@@ -296,6 +304,7 @@ GPIO6.associatedPins[0].pin.$suggestSolution       = "PA18";
 GPIO7.associatedPins[0].pin.$suggestSolution       = "PB21";
 I2C1.peripheral.sdaPin.$suggestSolution            = "PA10";
 I2C1.peripheral.sclPin.$suggestSolution            = "PA1";
+TIMER3.peripheral.$suggestSolution                 = "TIMA0";
 UART1.peripheral.rxPin.$suggestSolution            = "PA9";
 UART1.peripheral.txPin.$suggestSolution            = "PA8";
 UART3.peripheral.rxPin.$suggestSolution            = "PA22";

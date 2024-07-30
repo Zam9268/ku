@@ -28,20 +28,15 @@ void TIMER_Init(void)
 
 }
 
-void TIMG0_IRQHandler(void)
-{
+//void TIMG0_IRQHandler(void)
+//{
 
-	DL_GPIO_togglePins(GPIOB, DL_GPIO_PIN_22 | DL_GPIO_PIN_26);
-}
+//	DL_GPIO_togglePins(GPIOB, DL_GPIO_PIN_22 | DL_GPIO_PIN_26);
+//}
 
 void TIMER_1_INST_IRQHandler(void)
 {		
-	
-	
 	Setmotopulse();
-	
-	
-	
 	//调试速度环
 //			if(is_motor_en == 1)
 //		{
